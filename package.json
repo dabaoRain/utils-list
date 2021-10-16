@@ -1,6 +1,6 @@
 {
   "name": "utils-list",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "前端工具库",
   "main": "index.js",
   "scripts": {
