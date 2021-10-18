@@ -55,3 +55,46 @@ export const formArrayGetIds = function (data) {
     result = result.substring(0, result.length - 1)
     return result
 }
+
+
+//简易版
+//（这个将符合手机号前两位数规则的手机号进行了验证，后面的9位数字没有校验）
+//该方法适用于只对手机号格式校验的情况
+export const isTelPhone = function (tel) {
+    let reg = /^1[3-9]\d{9}$/;
+    return reg.test(tel);
+}
+//严格版(汇总现实中真实存在的手机号,这个是需要实时更新的)
+//该方法适用于不只对手机号格式校验的情况，还对手机号的真实性进行校验
+export const isStrictTelPhone = function (tel) {
+    //所有手机号码所属平台以及最新手机号码 https://learnku.com/articles/31543
+    let reg = /^1(3\d|4[5-9]|5[0-35-9]|6[2567]|7[0-8]|8\d|9[0-35-9])\d{8}$/;
+    return reg.test(tel);
+}
+
+
+//判断是否为字符串
+export const isString = function (str) {
+    return (typeof str == 'string') && str.constructor == String;
+}
+//驼峰转连字符即 fontSize转font-size
+export const humpToHyphen = function (str) {
+    if (isString(str)) {
+        return str.replace(/([A-Z])/g, "-$1").toLowerCase();
+    } else {
+        throw new Error("请传入字符串类型");
+    }
+}
+//文本（部分文本）高亮
+export const highLightWord = function (word, separator, style) {
+    let styleStr = "";
+    //将css样式对象转换为字符串
+    if (style && Object.keys(style).length > 0) {
+        for (let i in style) {
+            styleStr += `${humpToHyphen(i)}:${style[i]};`;
+        }
+    }
+    return word
+        .split(separator)
+        .join(`<span style="${styleStr}">${separator}</span>`);
+},
