@@ -1,3 +1,7 @@
+import {getQueryFromUrl} from './url'
+export {
+  getQueryFromUrl
+}
 
 export const add = function (a, b) {
     return a + b
@@ -97,4 +101,5 @@ export const highLightWord = function (word, separator, style) {
     return word
         .split(separator)
         .join(`<span style="${styleStr}">${separator}</span>`);
-},
+}
+
