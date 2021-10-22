@@ -1,6 +1,6 @@
-import {getQueryFromUrl} from './url'
+import { getQueryFromUrl } from './url'
 export {
-  getQueryFromUrl
+    getQueryFromUrl
 }
 
 export const add = function (a, b) {
@@ -17,8 +17,15 @@ export const isArray = function (data) {
             Object.prototype.toString.call(data) === '[object Array]'
     }
 }
+//判断数字类型 （正整数、负整数、正小数、负小数、0）***不包含字符串数字***
+export const isPureNumber = function (num) {
+    return (
+        typeof num === "number" &&
+        Object.prototype.toString.call(num) === "[object Number]"
+    );
+}
 
-//判断数字类型 （正整数、负整数、正小数、负小数、0）
+//判断数字类型 （正整数、负整数、正小数、负小数、0）***包含字符串数字***
 export const isNumber = function (num) {
     //因为下面的正则在校验num为数组类型并且有值时返回的结果是true，
     //即reg.test([1])为true

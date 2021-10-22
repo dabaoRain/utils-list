@@ -21,9 +21,17 @@ https://github.com/dabaoRain/utils-list
       humpToHyphen函数（驼峰转连字符）
       highLightWord函数（文本或者部分文本高亮显示）
       测试url文件下的index.js
+
   #1.0.9
     添加
       isObject函数
-      formateObjectStringify函数（序列化对象）      
+      formateObjectStringify函数（序列化对象）
+      getQueryFromUrl 获取url参数函数
+
+      isPureNumber 判断是否是纯数字类型
+      formatDate 日期格式化函数
+      getOneDayFromDate 获取指定某一天的值（前5天或者后6天）
+
+
 
 
